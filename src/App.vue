@@ -6,7 +6,7 @@
 			<v-select
 				v-model="SelectedDay"
 				:items="DayTitles"
-				label="Standard"
+				label="Select day"
 			/>
 		</v-col>
 		<component :is="DayValue(SelectedDay)" />
