@@ -3,11 +3,11 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-module.exports = {
-  build: {
-    assetsPublicPath: '/'
-  }
-}
+// module.exports = {
+//   build: {
+//     assetsPublicPath: '/'
+//   }
+// }
 
 new Vue({
   render: h => h(App),
