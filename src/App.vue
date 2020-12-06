@@ -3,6 +3,8 @@
 		<v-col
 		cols="12"
 		sm="6">
+			Advent of code christmas challenge.
+			Check out <a href="https://adventofcode.com/">adventofcode.com</a>
 			<v-select
 				v-model="SelectedDay"
 				:items="DayTitles"
