@@ -15,7 +15,7 @@
 
 <script>
 import NoContentVue from './components/NoContent.vue';
-import DayTemplateVue from './day_template/task.vue'
+import DayTemplateVue from './day_template/solution.vue'
 
 export default {
 	name: 'App',
