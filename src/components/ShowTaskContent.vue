@@ -4,8 +4,9 @@
         md="12">
             {{title}}
             <v-textarea
+            readonly
             outlined
-            auto-grow
+            :auto-grow=autoGrow
             :value=file>
             </v-textarea>
         </v-col>
@@ -16,10 +17,13 @@ export default {
     props: {
         title: String,
         file: String,
+        autoGrow: {
+            type: Boolean,
+            default: true    
+        }
     },
     data() {
         return {
-            TaskTitle: 'newTitle'
         }
     },
 }
