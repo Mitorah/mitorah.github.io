@@ -1,0 +1,13 @@
+Solve(inputData) {
+            // Split data to array
+            inputData = inputData.split('\n')
+
+            inputData.find(x => inputData.find(y => {
+                if (parseInt(x) + parseInt(y) == 2020) {
+                    this.SetResult(x * y)
+                    return true;
+                }
+
+                return false
+            }))
+        },

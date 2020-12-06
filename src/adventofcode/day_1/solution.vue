@@ -1,7 +1,7 @@
 <template>
     <div>
-        {{ TaskResult }}
         <show-task
+        :resultData="TaskResult"
         :taskData="CurrentTaskData"
         :inputData="CurrentInputData"
         :solutionData="CurrentSolutionData"
@@ -13,7 +13,7 @@
 import inputData from 'raw-loader!./input'
 import taskData from 'raw-loader!./task'
 import solutionData from 'raw-loader!./solution'
-import ShowTaskVue from '../components/ShowTask.vue'
+import ShowTaskVue from '../../components/ShowTask.vue'
 
 export default {
     components: {
@@ -34,15 +34,21 @@ export default {
     },
     methods: {
         Solve(inputData) {
-            // Solve the task there and then call 'SetResult(Result)'
-            // with the correct answer
-            // The answer can be checked at 'https://adventofcode.com/'
-            
-            console.log(inputData)
+            // Split data to array
+            inputData = inputData.split('\n')
 
+            inputData.find(x => inputData.find(y => {
+                if (parseInt(x) + parseInt(y) == 2020) {
+                    this.SetResult(x * y)
+                    return true;
+                }
+
+                return false
+            }))
         },
         SetResult(Result) {
-            this.TaskResult = Result
+            this.TaskResult = Result.toString()
+            console.log(Result)
         }
     }
 }

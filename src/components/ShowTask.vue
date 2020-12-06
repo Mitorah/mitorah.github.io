@@ -2,6 +2,7 @@
     <v-row>
         <v-col>
             <show-task-content title="Solution" :file=solutionData />
+            <show-task-content title="Result" :file=resultData />
         </v-col>
         <v-col>
             <show-task-content title=Task :file=taskData />
@@ -17,7 +18,8 @@ export default {
     props: {
         taskData: String,
         inputData: String,
-        solutionData: String
+        solutionData: String,
+        resultData: String,
     },
     components: {
         'show-task-content': ShowFileContentVue,

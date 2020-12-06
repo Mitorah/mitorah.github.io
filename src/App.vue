@@ -15,13 +15,13 @@
 
 <script>
 import NoContentVue from './components/NoContent.vue';
-import DayTemplateVue from './day_template/solution.vue'
+import Day1Vue from './adventofcode/day_1/solution.vue'
 
 export default {
 	name: 'App',
 	components: {
 		'no-content': NoContentVue,
-		'day-1': DayTemplateVue,
+		'day-1': Day1Vue,
 	},
 	data() {
 		return {

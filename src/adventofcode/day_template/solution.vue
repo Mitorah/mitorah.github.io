@@ -1,0 +1,53 @@
+<template>
+    <div>
+        {{ TaskResult }}
+        <show-task
+        :taskData="CurrentTaskData"
+        :inputData="CurrentInputData"
+        :solutionData="CurrentSolutionData"
+        ></show-task>
+    </div>
+</template>
+
+<script>
+import inputData from 'raw-loader!./input'
+import taskData from 'raw-loader!./task'
+import solutionData from 'raw-loader!./solution'
+import ShowTaskVue from '../../components/ShowTask.vue'
+
+export default {
+    components: {
+        'show-task': ShowTaskVue
+    },
+    data() {
+        return {
+            CurrentInputData: inputData,
+            CurrentTaskData: taskData,
+            CurrentSolutionData: solutionData,
+            InputData: inputData,
+
+            TaskResult: 'This is the result value.',
+        }
+    },
+    mounted() {
+        this.Solve(inputData)
+    },
+    methods: {
+        Solve(inputData) {
+            // Solve the task there and then call 'SetResult(Result)'
+            // with the correct answer
+            // The answer can be checked at 'https://adventofcode.com/'
+            
+            console.log(inputData)
+
+        },
+        SetResult(Result) {
+            this.TaskResult = Result
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>
