@@ -39,6 +39,7 @@ export default {
 
             inputData.find(x => inputData.find(y => {
                 if (parseInt(x) + parseInt(y) == 2020) {
+                    // Result found!
                     this.SetResult(x * y)
                     return true;
                 }
