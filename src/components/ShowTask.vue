@@ -1,8 +1,8 @@
 <template>
     <v-row>
         <v-col>
-            <show-task-content title="Solution" :file=solutionData />
             <show-task-content title="Result" :file=resultData />
+            <show-task-content title="Solution" :file=solutionData />
         </v-col>
         <v-col>
             <show-task-content title=Task :file=taskData />

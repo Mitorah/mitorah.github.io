@@ -20,6 +20,7 @@ import NoContentVue from './components/NoContent.vue';
 import Day1Vue from './adventofcode/day_1/solution.vue'
 import Day2Vue from './adventofcode/day_2/solution.vue'
 import Day3Vue from './adventofcode/day_3/solution.vue'
+import Day4Vue from './adventofcode/day_4/solution.vue'
 
 export default {
 	name: 'App',
@@ -28,6 +29,7 @@ export default {
 		'day-1': Day1Vue,
 		'day-2': Day2Vue,
 		'day-3': Day3Vue,
+		'day-4': Day4Vue,
 	},
 	data() {
 		return {
@@ -43,6 +45,10 @@ export default {
 				{
 					Title: "Day 3",
 					Value: "day-3"
+				},
+				{
+					Title: "Day 4",
+					Value: "day-4"
 				}
 			],
 				SelectedDay: '',
