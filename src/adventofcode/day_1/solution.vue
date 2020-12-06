@@ -26,7 +26,7 @@ export default {
             CurrentSolutionData: solutionData,
             InputData: inputData,
 
-            TaskResult: 'This is the result value.',
+            TaskResult: '', // Result value
         }
     },
     mounted() {
@@ -37,6 +37,7 @@ export default {
             // Split data to array
             inputData = inputData.split('\n')
 
+            // --- Part One ---
             inputData.find(x => inputData.find(y => {
                 if (parseInt(x) + parseInt(y) == 2020) {
                     // Result found!
@@ -46,10 +47,20 @@ export default {
 
                 return false
             }))
+
+            // --- Part Two ---
+            inputData.find(x => inputData.find(y => inputData.find(z => {
+                if (parseInt(x) + parseInt(y) + parseInt(z) == 2020) {
+                    // Result found!
+                    this.SetResult(x * y * z)
+                    return true
+                }
+
+                return false
+            })))
         },
         SetResult(Result) {
-            this.TaskResult = Result.toString()
-            console.log(Result)
+            this.TaskResult += Result.toString() + '\n'
         }
     }
 }

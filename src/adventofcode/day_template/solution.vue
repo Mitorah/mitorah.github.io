@@ -1,7 +1,7 @@
 <template>
     <div>
-        {{ TaskResult }}
         <show-task
+        :resultData="TaskResult"
         :taskData="CurrentTaskData"
         :inputData="CurrentInputData"
         :solutionData="CurrentSolutionData"
@@ -26,7 +26,7 @@ export default {
             CurrentSolutionData: solutionData,
             InputData: inputData,
 
-            TaskResult: 'This is the result value.',
+            TaskResult: '', // Result value
         }
     },
     mounted() {
@@ -42,7 +42,7 @@ export default {
 
         },
         SetResult(Result) {
-            this.TaskResult = Result
+            this.TaskResult += Result.toString() + '\n'
         }
     }
 }
