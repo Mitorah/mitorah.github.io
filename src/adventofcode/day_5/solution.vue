@@ -1,0 +1,84 @@
+<template>
+    <div>
+        <show-task
+        :resultData="TaskResult"
+        :taskData="CurrentTaskData"
+        :inputData="CurrentInputData"
+        :solutionData="CurrentSolutionData"
+        ></show-task>
+    </div>
+</template>
+
+<script>
+import inputData from 'raw-loader!./input'
+import taskData from 'raw-loader!./task'
+import solutionData from 'raw-loader!./solution'
+import ShowTaskVue from '../../components/ShowTask.vue'
+
+export default {
+    components: {
+        'show-task': ShowTaskVue
+    },
+    data() {
+        return {
+            CurrentInputData: inputData,
+            CurrentTaskData: taskData,
+            CurrentSolutionData: solutionData,
+            InputData: inputData,
+
+            TaskResult: '', // Result value
+        }
+    },
+    mounted() {
+        this.Solve(inputData)
+    },
+    methods: {
+        Solve(inputData) {
+            // Solve the task there and then call 'SetResult(Result)'
+            // with the correct answer
+            // The answer can be checked at 'https://adventofcode.com/'
+
+            inputData = inputData.split("\n")
+
+            // Part One
+            var topScore = 0
+
+            // Store IDs for Part Two
+            var uniqueIDs = new Array(inputData.length + 1).fill(-1)
+
+            inputData.forEach(element => {
+                // Change rows and columns to binaries. This way it is easy to solve row and col just by parsing it
+                var RowNumber = parseInt(element.slice(0,7).replaceAll("F","0").replaceAll("B","1"), 2)
+                var ColumnNumber = parseInt(element.slice(7,10).replaceAll("L","0").replaceAll("R","1"), 2)
+
+                ColumnNumber = ColumnNumber ? ColumnNumber : 0
+                RowNumber = RowNumber ? RowNumber : 0
+
+                var UniqueID = RowNumber * 8 + ColumnNumber
+
+                // This is for Part Two. Store 1 for the UniqueID index when it is found.
+                uniqueIDs[UniqueID] = 1
+
+                topScore = topScore < UniqueID ? UniqueID : topScore
+            });
+
+            this.SetResult(topScore)
+
+            // Part Two
+            for (let i = 1; i < uniqueIDs.length - 2; i++) {
+                if (uniqueIDs[i] == -1 && uniqueIDs[i-1] == 1 && uniqueIDs[i+1] == 1) {
+                    this.SetResult(i)
+                    break;
+                }
+            }
+        },
+        SetResult(Result) {
+            this.TaskResult += Result.toString() + '\n'
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>
