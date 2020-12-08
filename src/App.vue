@@ -4,7 +4,8 @@
 		cols="12"
 		sm="6">
 			Advent of code christmas challenge.
-			Check out <a href="https://adventofcode.com/">adventofcode.com</a>
+			Check out <a href="https://adventofcode.com/">adventofcode.com </a><br/>
+			Source code can be found at <a href="https://github.com/Mitorah/mitorah.github.io">GitHub</a>
 			<v-select
 				v-model="SelectedDay"
 				:items="DayTitles"
@@ -22,6 +23,7 @@ import Day2Vue from './adventofcode/day_2/solution.vue'
 import Day3Vue from './adventofcode/day_3/solution.vue'
 import Day4Vue from './adventofcode/day_4/solution.vue'
 import Day5Vue from './adventofcode/day_5/solution.vue'
+import Day6Vue from './adventofcode/day_6/solution.vue'
 
 export default {
 	name: 'App',
@@ -32,6 +34,7 @@ export default {
 		'day-3': Day3Vue,
 		'day-4': Day4Vue,
 		'day-5': Day5Vue,
+		'day-6': Day6Vue,
 	},
 	data() {
 		return {
@@ -55,6 +58,10 @@ export default {
 				{
 					Title: "Day 5",
 					Value: "day-5"
+				},
+				{
+					Title: "Day 6",
+					Value: "day-6"
 				}
 			],
 				SelectedDay: '',

@@ -1,26 +1,26 @@
 Solve(inputData) {
-            // Split data to array
-            inputData = inputData.split('\n')
+    // Split data to array
+    inputData = inputData.split('\n')
 
-            // --- Part One ---
-            inputData.find(x => inputData.find(y => {
-                if (parseInt(x) + parseInt(y) == 2020) {
-                    // Result found!
-                    this.SetResult(x * y)
-                    return true;
-                }
-
-                return false
-            }))
-
-            // --- Part Two ---
-            inputData.find(x => inputData.find(y => inputData.find(z => {
-                if (parseInt(x) + parseInt(y) + parseInt(z) == 2020) {
-                    // Result found!
-                    this.SetResult(x * y * z)
-                    return true
-                }
-
-                return false
-            })))
+    // --- Part One ---
+    inputData.find(x => inputData.find(y => {
+        if (parseInt(x) + parseInt(y) == 2020) {
+            // Result found!
+            this.SetResult(x * y)
+            return true;
         }
+
+        return false
+    }))
+
+    // --- Part Two ---
+    inputData.find(x => inputData.find(y => inputData.find(z => {
+        if (parseInt(x) + parseInt(y) + parseInt(z) == 2020) {
+            // Result found!
+            this.SetResult(x * y * z)
+            return true
+        }
+
+        return false
+    })))
+}
