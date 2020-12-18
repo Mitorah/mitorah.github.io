@@ -27,6 +27,11 @@ export default {
             InputData: inputData,
 
             TaskResult: '', // Result value
+            
+            ParsedDataContainer: [{
+              dataId: String,
+              containsIndex: []
+            }],
         }
     },
     mounted() {
@@ -106,6 +111,23 @@ export default {
             })
 
             return foundItems;
+        },
+        GetDatacontainerIndex(dataId) {
+          var data = this.ParsedDataContainer.find(x => x.dataId = dataId)
+          
+          if (!data) {
+            data = this.ParsedContainer.push({
+              dataId: dataId,
+              containsIndex: new Array(),
+            })
+          }
+          
+          return this.ParsedDataContainer.indexOf(data)
+        },
+        AddToContainer(dataContainerIndex, dataId) {
+          var dataIndex = this.ParsedDataContainer(dataId)
+          
+          this.ParsedDataContainer[dataContainerIndex].containsIndex.push(dataIndex)
         },
         SetResult(Result) {
             this.TaskResult += Result.toString() + '\n'
