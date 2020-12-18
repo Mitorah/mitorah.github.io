@@ -1,6 +1,12 @@
 <template>
     <v-row>
         <v-col>
+            <show-task-content 
+              v-for = "(item, index) in resultArray"
+              :key="index"
+              :title="Result " + index
+              :file=item />
+              
             <show-task-content title="Result" :file=resultData />
             <show-task-content title="Solution" :file=solutionData />
         </v-col>
@@ -20,6 +26,7 @@ export default {
         inputData: String,
         solutionData: String,
         resultData: String,
+        resultArray: Array,
     },
     components: {
         'show-task-content': ShowFileContentVue,
