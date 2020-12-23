@@ -2,17 +2,27 @@
     <v-row>
         <v-col>
             <show-task-content 
-              v-for = "(item, index) in resultArray"
+              v-for = "(item, index) in resultData"
               :key="index"
-              :title="Result " + index
-              :file=item />
-              
-            <show-task-content title="Result" :file=resultData />
-            <show-task-content title="Solution" :file=solutionData />
+              :title="('Part '+(index+1)).toString()"
+              :file=item 
+              :autoGrow="true"
+              :height="60" />
+            <show-task-content 
+            title="Solution" 
+            :file=solutionData 
+            :height="height"/>
         </v-col>
         <v-col>
-            <show-task-content title=Task :file=taskData />
-            <show-task-content title="Input data" :autoGrow="false" :file=inputData />
+            <show-task-content 
+            title=Task 
+            :file=taskData 
+            :height="height"/>
+            <show-task-content 
+            title="Input data" 
+            :autoGrow="false" 
+            :file=inputData 
+            :height="height"/>
         </v-col>
     </v-row>
 </template>
@@ -25,8 +35,11 @@ export default {
         taskData: String,
         inputData: String,
         solutionData: String,
-        resultData: String,
-        resultArray: Array,
+        resultData: Array,
+        height:{
+            type: Number,
+            default: 600
+        }
     },
     components: {
         'show-task-content': ShowFileContentVue,

@@ -24,7 +24,7 @@ import Day3Vue from './adventofcode/day_3/solution.vue'
 import Day4Vue from './adventofcode/day_4/solution.vue'
 import Day5Vue from './adventofcode/day_5/solution.vue'
 import Day6Vue from './adventofcode/day_6/solution.vue'
-import Day7Vue from './adventofcode/day_7/solution.vue'
+// import Day7Vue from './adventofcode/day_7/solution.vue'
 
 export default {
 	name: 'App',
@@ -36,7 +36,7 @@ export default {
 		'day-4': Day4Vue,
 		'day-5': Day5Vue,
 		'day-6': Day6Vue,
-		'day-7': Day7Vue,
+		// 'day-7': Day7Vue,
 	},
 	data() {
 		return {
@@ -65,10 +65,10 @@ export default {
 					Title: "Day 6",
 					Value: "day-6"
 				},
-				{
-					Title: "Day 7",
-					Value: "day-7"
-				}
+				// {
+				// 	Title: "Day 7",
+				// 	Value: "day-7"
+				// }
 			],
 				SelectedDay: '',
 				FoundComponent: false

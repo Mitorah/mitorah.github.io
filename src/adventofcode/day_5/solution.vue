@@ -26,7 +26,7 @@ export default {
             CurrentSolutionData: solutionData,
             InputData: inputData,
 
-            TaskResult: '', // Result value
+            TaskResult: [], // Result value
         }
     },
     mounted() {
@@ -73,7 +73,7 @@ export default {
             }
         },
         SetResult(Result) {
-            this.TaskResult += Result.toString() + '\n'
+            this.TaskResult.push(Result.toString() + '\n')
         }
     }
 }
