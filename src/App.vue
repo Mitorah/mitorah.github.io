@@ -24,10 +24,11 @@ import Day3Vue from './adventofcode/day_3/solution.vue'
 import Day4Vue from './adventofcode/day_4/solution.vue'
 import Day5Vue from './adventofcode/day_5/solution.vue'
 import Day6Vue from './adventofcode/day_6/solution.vue'
-// import Day7Vue from './adventofcode/day_7/solution.vue'
+import Day7Vue from './adventofcode/day_7/solution.vue'
 import Day8Vue from './adventofcode/day_8/solution.vue'
 import Day9Vue from './adventofcode/day_9/solution.vue'
 import Day10Vue from './adventofcode/day_10/solution.vue'
+import Day11Vue from './adventofcode/day_11/solution.vue'
 
 export default {
 	name: 'App',
@@ -39,10 +40,11 @@ export default {
 		'day-4': Day4Vue,
 		'day-5': Day5Vue,
 		'day-6': Day6Vue,
-		// 'day-7': Day7Vue,
+		'day-7': Day7Vue,
 		'day-8': Day8Vue,
 		'day-9': Day9Vue,
 		'day-10': Day10Vue,
+		'day-11': Day11Vue,
 	},
 	data() {
 		return {
@@ -71,10 +73,10 @@ export default {
 					Title: "Day 6",
 					Value: "day-6"
 				},
-				// {
-				// 	Title: "Day 7",
-				// 	Value: "day-7"
-				// }
+				{
+					Title: "Day 7",
+					Value: "day-7"
+				},
 				{
 					Title: "Day 8",
 					Value: "day-8"
@@ -86,6 +88,10 @@ export default {
 				{
 					Title: "Day 10",
 					Value: "day-10"
+				},
+				{
+					Title: "Day 11",
+					Value: "day-11"
 				},
 			],
 				SelectedDay: '',

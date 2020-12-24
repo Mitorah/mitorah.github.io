@@ -29,7 +29,7 @@ export default {
             TaskResult: [], // Result value
 
             ParsedDataContainer: [],
-
+            Counter: 0 
         }
     },
     mounted() {
@@ -71,11 +71,11 @@ export default {
 
             var PhaseOneResult = 0;
 
-            console.log(this.ParsedDataContainer)
-            
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < this.ParsedDataContainer.length; i++) {
                 var value = this.ContainsBagId(i, "shiny gold bag")
                 
+                this.ParsedDataContainer[i].containsGoldBag = value
+
                 if (value) {
                     PhaseOneResult++
                 }
@@ -84,7 +84,9 @@ export default {
             this.SetResult(PhaseOneResult)
 
             // -- Phase Two --
-            // this.SetResult(this.TotalBagsFoundInside('shiny gold bag', 0))
+            var goldBagId = this.ParsedDataContainer.find(x => x.dataId == 'shiny gold bag')
+            
+            this.SetResult(this.TotalBagsFoundInside(this.ParsedDataContainer.indexOf(goldBagId), 0))
 
         },
         GetDatacontainerIndex(dataId) {
@@ -109,31 +111,39 @@ export default {
             this.ParsedDataContainer[dataContainerIndex].containsIndex.push(dataIndex)
         },
         ContainsBagId(bagIdx, bagIDToFind) {
+            if (this.ParsedDataContainer[bagIdx].containsGoldBag)
+                return true
+
+            var alreadyChecked = []
+
             for (let i = 0; i < this.ParsedDataContainer[bagIdx].containsIndex.length; i++) {
                 
+                if (alreadyChecked.includes(this.ParsedDataContainer[bagIdx].containsIndex[i]))
+                    continue
+
+                alreadyChecked.push(this.ParsedDataContainer[bagIdx].containsIndex[i])
+                
                 var returnValue = false
-
-                if (bagIDToFind == this.ParsedDataContainer[this.ParsedDataContainer[bagIdx].containsIndex[i]].dataId)
+                
+                if (bagIDToFind == this.ParsedDataContainer[this.ParsedDataContainer[bagIdx].containsIndex[i]].dataId) {
                     return true
-
+                }
+                
                 returnValue = this.ContainsBagId(this.ParsedDataContainer[bagIdx].containsIndex[i], bagIDToFind)
 
-                if (returnValue)
+                if (returnValue) {
+                    this.ParsedDataContainer[bagIdx].containsGoldBag = true
                     return true
+                }
             }
 
             return false
         },
-        TotalBagsFoundInside(bag, amount) {
-            var thisBagData = this.BagData.find(x => x.bagId == bag)
-
-            if (!thisBagData || !thisBagData.contains)
-                return amount
-
-            amount += thisBagData.contains.length
-
-            for (let i = 0; i < thisBagData.contains.length; i++) {
-                amount = this.TotalBagsFoundInside(thisBagData.contains[i], amount)
+        TotalBagsFoundInside(bagIdx, amount) {
+            amount += this.ParsedDataContainer[bagIdx].containsIndex.length
+            
+            for (let i = 0; i < this.ParsedDataContainer[bagIdx].containsIndex.length; i++) {
+                amount = this.TotalBagsFoundInside(this.ParsedDataContainer[bagIdx].containsIndex[i], amount)
             }
 
             return amount
