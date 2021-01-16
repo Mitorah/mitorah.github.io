@@ -30,6 +30,7 @@ import Day9Vue from './adventofcode/day_9/solution.vue'
 import Day10Vue from './adventofcode/day_10/solution.vue'
 import Day11Vue from './adventofcode/day_11/solution.vue'
 import Day12Vue from './adventofcode/day_12/solution.vue'
+// import Day13Vue from './adventofcode/day_13/solution.vue'
 
 export default {
 	name: 'App',
@@ -47,6 +48,7 @@ export default {
 		'day-10': Day10Vue,
 		'day-11': Day11Vue,
 		'day-12': Day12Vue,
+		// 'day-13': Day13Vue,
 	},
 	data() {
 		return {
@@ -99,6 +101,10 @@ export default {
 					Title: "Day 12",
 					Value: "day-12"
 				},
+				// {
+				// 	Title: "Day 13",
+				// 	Value: "day-13"
+				// },
 			],
 				SelectedDay: '',
 				FoundComponent: false
