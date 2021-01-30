@@ -24,11 +24,6 @@ export default {
             ChosenCardName: ""
         }
     },
-    watch: {
-        ChosenCardName(val) {
-            console.log(val)
-        }
-    },
     methods: {
         CardChosen(data) {
             this.ChosenCardName = data.name
