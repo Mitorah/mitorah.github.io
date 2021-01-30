@@ -1,12 +1,27 @@
 <template>
     <v-app>
         <v-btn :disabled=IsButtonDisabled :width=ImageMaxWidth :height=ImageMaxHeight @click="ChooseCard">
-            <v-img :width=ImageMaxWidth :height=ImageMaxHeight :src=CardImageUrl />
+            <v-img :width=ImageMaxWidth :height=ImageMaxHeight 
+            :src=CardImageUrl
+            :lazy-src=CardBackImageUrl>
+                <template v-slot:placeholder>
+                    <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center">
+                        <v-progress-circular
+                        indeterminate
+                        color="grey lighten-5">
+                        </v-progress-circular>
+                    </v-row>
+                </template>
+            </v-img>
         </v-btn>
     </v-app>
 </template>
 
 <script>
+
 
 
 export default {
@@ -41,7 +56,10 @@ export default {
         },
         CardImageUrl() {
             return this.JSONCardData ? this.JSONCardData.image_uris ? this.JSONCardData.image_uris.large : '' : ''
-        }
+        },
+        CardBackImageUrl() {
+            return require('@/cardvalueengine/images/mtg_card_back.jpg')
+        },
     },
     mounted() {
         this.GetRandomCard()
@@ -50,7 +68,7 @@ export default {
         GetRandomCard() {
             this.ButtonDisabled = true
             this.axios
-                .get('https://api.scryfall.com/cards/random')
+                .get('https://api.scryfall.com/cards/random?-t:token%3A-t:basic')
                 .then((data) => {
                     this.JSONCardData = data.data
                     this.ButtonDisabled = false
