@@ -71,7 +71,7 @@ export default {
             this.ButtonDisabled = true
 
             this.axios
-                .get('https://api.scryfall.com/cards/random?q=-t%3Atoken+-t%3Aland&version=small')
+                .get('https://api.scryfall.com/cards/random?q=-t%3Atoken+-t%3Aland&version=normal')
                 .then((data) => {
                     this.JSONCardData = data.data
                     this.ButtonDisabled = false
