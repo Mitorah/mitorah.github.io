@@ -34,7 +34,7 @@ export default {
             // https://scryfall.com/docs/api/cards/random
             JSONCardData: '',
             ButtonDisabled: false,
-            ImageScale: 15
+            ImageScale: 10
         }
     },
     watch: {
