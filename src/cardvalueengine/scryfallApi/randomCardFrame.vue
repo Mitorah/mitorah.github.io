@@ -57,7 +57,7 @@ export default {
             return this.JSONCardData ? this.JSONCardData.name : ''
         },
         CardImageUrl() {
-            return this.JSONCardData ? this.JSONCardData.image_uris ? this.JSONCardData.image_uris.small : this.CardBackImageUrl : this.CardBackImageUrl
+            return this.JSONCardData ? this.JSONCardData.image_uris ? this.JSONCardData.image_uris.normal : this.CardBackImageUrl : this.CardBackImageUrl
         },
         CardBackImageUrl() {
             return require('@/cardvalueengine/images/mtg_card_back.jpg')
