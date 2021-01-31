@@ -26,7 +26,8 @@
 
 export default {
     props: {
-        GetNewCard: Boolean
+        GetNewCard: Boolean,
+        CardSlot: String
     },
     data() {
         return {
@@ -68,18 +69,20 @@ export default {
         GetRandomCard() {
             this.ButtonDisabled = true
             this.axios
-                .get('https://api.scryfall.com/cards/random?-t:token%3A-t:basic')
+                .get('https://api.scryfall.com/cards/random?q=-t:token%3A-t:land')
                 .then((data) => {
                     this.JSONCardData = data.data
                     this.ButtonDisabled = false
+                    this.$emit('CardReceived', this.JSONCardData)
                 })
+
 
             // https://api.scryfall.com
             // cards/random
         },
         ChooseCard() {
             // This card was chosen. Send it to database and load new cards
-            this.$emit('CardChosen', this.JSONCardData)
+            this.$emit('CardChosen')
         },
     }
 
