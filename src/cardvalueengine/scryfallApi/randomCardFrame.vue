@@ -1,9 +1,9 @@
 <template>
-    <v-app>
+    <v-card class="pa-2" outlined tile> 
         <v-btn :disabled=IsButtonDisabled :width=ImageMaxWidth :height=ImageMaxHeight @click="ChooseCard">
             <v-img :width=ImageMaxWidth :height=ImageMaxHeight 
             :src=CardImageUrl
-            :lazy-src=CardBackImageUrl>
+            :lazy-src=CardImageUrl>
                 <template v-slot:placeholder>
                     <v-row
                     class="fill-height ma-0"
@@ -17,7 +17,7 @@
                 </template>
             </v-img>
         </v-btn>
-    </v-app>
+    </v-card>
 </template>
 
 <script>
@@ -33,8 +33,8 @@ export default {
         return {
             // https://scryfall.com/docs/api/cards/random
             JSONCardData: '',
-            ButtonDisabled: false,
-            ImageScale: 10
+            ButtonDisabled: true,
+            ImageScale: 7,
         }
     },
     watch: {
@@ -75,13 +75,17 @@ export default {
                     this.ButtonDisabled = false
                     this.$emit('CardReceived', this.JSONCardData)
                 })
-
+                .catch(() => {
+                    console.error("Retrying...")
+                    this.GetRandomCard()
+                })
 
             // https://api.scryfall.com
             // cards/random
         },
         ChooseCard() {
             // This card was chosen. Send it to database and load new cards
+            this.ButtonDisabled = true
             this.$emit('CardChosen')
         },
     }

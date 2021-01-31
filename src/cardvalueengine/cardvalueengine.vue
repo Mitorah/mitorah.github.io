@@ -1,10 +1,16 @@
 <template>
     <v-app>
-        <v-row>
+        <v-container class="grey lighten-5">
+            <v-row no-gutters>
+                <v-col>
+                    <random-card-frame :GetNewCard=GetNewCard @CardChosen=CardOneChosen @CardReceived=Card1 />
+                </v-col>
+                <v-col>
+                    <random-card-frame :GetNewCard=GetNewCard @CardChosen=CardTwoChosen @CardReceived=Card2 />
+                </v-col>
+            </v-row>
         <card-value-engine-database :ResultData=CardSelectionResult />
-        <random-card-frame :GetNewCard=GetNewCard @CardChosen=CardOneChosen @CardReceived=Card1 />
-        <random-card-frame :GetNewCard=GetNewCard @CardChosen=CardTwoChosen @CardReceived=Card2 />
-        </v-row>
+        </v-container>
     </v-app>
 </template>
 
