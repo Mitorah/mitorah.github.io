@@ -27,6 +27,7 @@
 export default {
     props: {
         GetNewCard: Boolean,
+        GetNewCardDelay: Number,
         CardSlot: String
     },
     data() {
@@ -68,6 +69,8 @@ export default {
     },
     methods: {
         GetRandomCard() {
+            setTimeout(() => {
+                
             this.ButtonDisabled = true
 
             this.axios
@@ -84,6 +87,7 @@ export default {
 
             // https://api.scryfall.com
             // cards/random
+            }, this.GetNewCardDelay)
         },
         ChooseCard() {
             // This card was chosen. Send it to database and load new cards

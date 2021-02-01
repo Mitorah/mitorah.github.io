@@ -3,10 +3,10 @@
         <v-container class="grey lighten-5">
             <v-row no-gutters>
                 <v-col>
-                    <random-card-frame :GetNewCard=GetNewCard @CardChosen=CardOneChosen @CardReceived=Card1 />
+                    <random-card-frame :GetNewCard=GetNewCard GetNewCardDelay=0 @CardChosen=CardOneChosen @CardReceived=Card1 />
                 </v-col>
                 <v-col>
-                    <random-card-frame :GetNewCard=GetNewCard @CardChosen=CardTwoChosen @CardReceived=Card2 />
+                    <random-card-frame :GetNewCard=GetNewCard GetNewCardDelay=200 @CardChosen=CardTwoChosen @CardReceived=Card2 />
                 </v-col>
             </v-row>
         <card-value-engine-database :ResultData=CardSelectionResult />
