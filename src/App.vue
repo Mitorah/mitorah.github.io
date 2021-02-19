@@ -1,5 +1,5 @@
 <template>
-	<v-app>
+	<v-app v-if="false">
 		<card-value-engine />
 		<!-- <advent-of-code></advent-of-code> -->
 
