@@ -52,7 +52,6 @@ export default {
             let lastDepth = 0;
             result = 0
             for (let i = 0; i < inputData.length -3; i++) {
-                console.error(i)
                 let newDepth = Number(inputData[i]) + Number(inputData[i+1]) + Number(inputData[i+2])
 
                 if (newDepth > lastDepth)

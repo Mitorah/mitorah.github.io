@@ -1,0 +1,124 @@
+<template>
+    <div>
+        <show-task
+        :resultData="TaskResult"
+        :taskData="CurrentTaskData"
+        :inputData="CurrentInputData"
+        :solutionData="CurrentSolutionData"
+        ></show-task>
+    </div>
+</template>
+
+<script>
+import inputData from 'raw-loader!./input'
+import taskData from 'raw-loader!./task'
+import solutionData from 'raw-loader!./solution'
+import ShowTaskVue from '../../components/ShowTask.vue'
+
+export default {
+    components: {
+        'show-task': ShowTaskVue
+    },
+    data() {
+        return {
+            CurrentInputData: inputData,
+            CurrentTaskData: taskData,
+            CurrentSolutionData: solutionData,
+            InputData: inputData,
+
+            TaskResult: [], // Result value
+        }
+    },
+    mounted() {
+        this.Solve(inputData)
+    },
+    methods: {
+        Solve(inputData) {
+            // Solve the task there and then call 'SetResult(Result)'
+            // with the correct answer
+            // The answer can be checked at 'https://adventofcode.com/'
+            inputData = inputData.split('\n')
+
+
+            // --- Part 1 ---
+            var Rules = [
+                {
+                    key: "forward",
+                    calc: function(res, x) { res.shiphorizontal += x; return res; }
+                },
+                {
+                    key: "up",
+                    calc: function(res, x) { res.shipdepth -= x; return res; }
+                },
+                {
+                    key: "down",
+                    calc: function(res, x) { res.shipdepth += x; return res; }
+                },
+            ]
+
+            var result = {
+                shiphorizontal: 0,
+                shipdepth: 0
+            }
+
+            inputData.forEach(element => {
+                var splitted = element.split(' ')
+                var v = Rules.find(x => x.key == splitted[0])
+
+                if (v)
+                    result = v.calc(result, Number(splitted[1]))
+                
+                console.error(result)
+            });
+
+
+            this.SetResult(result.shiphorizontal * result.shipdepth)
+            //2091984
+            
+            // --- Part 2 ---
+
+            var Rules2 = [
+                {
+                    key: "down",
+                    calc: function(res, x) { res.shipaim += x; return res; }
+                },
+                {
+                    key: "up",
+                    calc: function(res, x) { res.shipaim -= x; return res; }
+                },
+                {
+                    key: "forward",
+                    calc: function(res, x) { res.shiphorizontal += x; res.shipdepth += res.shipaim * x; return res; }
+                },
+            ]
+
+            console.error(Rules2)
+
+            var result2 = {
+                shiphorizontal: 0,
+                shipdepth: 0,
+                shipaim: 0
+            }
+
+            inputData.forEach(element => {
+                var splitted = element.split(' ')
+                var v = Rules2.find(x => x.key == splitted[0])
+
+                if (v)
+                    result2 = v.calc(result2, Number(splitted[1]))
+            });
+            console.error(result2)
+
+            this.SetResult(result2.shiphorizontal * result2.shipdepth)
+
+        },
+        SetResult(Result) {
+            this.TaskResult.push(Result.toString() + '\n')
+        }
+    }
+}
+</script>
+
+<style>
+
+</style>

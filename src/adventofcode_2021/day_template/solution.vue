@@ -37,6 +37,7 @@ export default {
             // Solve the task there and then call 'SetResult(Result)'
             // with the correct answer
             // The answer can be checked at 'https://adventofcode.com/'
+            inputData = inputData.split('\n')
             
             console.log(inputData)
 
