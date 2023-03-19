@@ -2,7 +2,7 @@
 	<v-app v-if="true">
 		<advent-of-code-2021 />
 		<!-- <advent-of-code-2020 /> -->
-		<!-- <card-value-engine /> -->
+		<card-value-engine />
 	</v-app>
 </template>
 
