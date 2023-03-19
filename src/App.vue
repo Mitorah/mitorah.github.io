@@ -10,14 +10,14 @@
 
 // import AdventOfCode2020 from './adventofcode_2020/adventofcode.vue'
 import AdventOfCode2021 from './adventofcode_2021/adventofcode.vue'
-// import cardvalueengineVue from './cardvalueengine/cardvalueengine.vue'
+import cardvalueengineVue from './cardvalueengine/cardvalueengine.vue'
 
 export default {
 	name: 'App',
 	components: {
 		// 'advent-of-code-2020': AdventOfCode2020,
 		'advent-of-code-2021': AdventOfCode2021,
-		// 'card-value-engine': cardvalueengineVue
+		'card-value-engine': cardvalueengineVue
 	},
 	data() {
 		return {
