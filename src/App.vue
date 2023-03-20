@@ -4,9 +4,6 @@
 		<!-- <advent-of-code-2020 /> -->
 		<card-value-engine />
 	</v-app>
-	<v-app v-else>
-		This is committed message.
-	</v-app>
 </template>
 
 <script>
