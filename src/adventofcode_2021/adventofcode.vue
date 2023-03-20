@@ -20,7 +20,7 @@
 import NoContentVue from '../components/NoContent.vue';
 import Day1Vue from './day_1/solution.vue'
 import Day2Vue from './day_2/solution.vue'
-import Day3Vue from './day_3/solution.vue'
+//import Day3Vue from './day_3/solution.vue'
 // import Day4Vue from './day_4/solution.vue'
 // import Day5Vue from './day_5/solution.vue'
 // import Day6Vue from './day_6/solution.vue'
@@ -38,7 +38,7 @@ export default {
 		'no-content': NoContentVue,
 		'day-1': Day1Vue,
 		'day-2': Day2Vue,
-		'day-3': Day3Vue,
+		//'day-3': Day3Vue,
 		// 'day-4': Day4Vue,
 		// 'day-5': Day5Vue,
 		// 'day-6': Day6Vue,
