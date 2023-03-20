@@ -1,6 +1,6 @@
 <template>
 	<v-app v-if="true">
-		<advent-of-code-2021 />
+		<!-- <advent-of-code-2021 /> -->
 		<!-- <advent-of-code-2020 /> -->
 		<card-value-engine />
 	</v-app>
@@ -9,14 +9,14 @@
 <script>
 
 // import AdventOfCode2020 from './adventofcode_2020/adventofcode.vue'
-import AdventOfCode2021 from './adventofcode_2021/adventofcode.vue'
+// import AdventOfCode2021 from './adventofcode_2021/adventofcode.vue'
 import cardvalueengineVue from './cardvalueengine/cardvalueengine.vue'
 
 export default {
 	name: 'App',
 	components: {
 		// 'advent-of-code-2020': AdventOfCode2020,
-		'advent-of-code-2021': AdventOfCode2021,
+		//'advent-of-code-2021': AdventOfCode2021,
 		'card-value-engine': cardvalueengineVue
 	},
 	data() {
